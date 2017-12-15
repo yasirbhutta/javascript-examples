@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>javascript - example </title>
+</head>
+
+<body>
+    <h1>Hello</h1>
+
+    <p>Before the script ....</p>
+    <button> Change user </button>
+    <script type="text/javascript">
+
+        var myButton = document.querySelector('button');
+        var myHeading = document.querySelector('h1');
+        //
+        // setUserName()
+        //
+        function setUserName() {
+            var myName = prompt('Please enter your name.');
+            //    
+            // localStorage, which allows us to store data in the browser and later retrieve it.
+            //
+            localStorage.setItem('name', myName);
+            myHeading.textContent = 'JavaScript is cool, ' + myName;
+        }
+        //
+        //
+        //
+        if (!localStorage.getItem('name')) {
+            setUserName();
+        } else {
+            var storedName = localStorage.getItem('name');
+            myHeading.textContent = 'JavaScript is cool, ' + storedName;
+        }
+        //
+        // onclick event handler on the button
+        //
+        myButton.onclick = function () {
+            setUserName();
+        }
+    </script>
+</body>
+
+</html>
